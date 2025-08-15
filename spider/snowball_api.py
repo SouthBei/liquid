@@ -5,6 +5,7 @@ import os
 import json
 import time
 from . import api_ref
+import logging
 
 
 
@@ -24,7 +25,7 @@ def pankou(symbol):
 
 # 获取股票的k线数据，支持不同周期
 def klines(symbol,period='day',count=284):
-    return fetch(api_ref.kline.format(symbol,int(time.times()*1000),period,count))
+    return fetch(api_ref.kline.format(symbol,int(time.time()*1000),period,count))
 
 
 def klines_strong(symbol:str, period: str='day',count: int=284, **extra_params:Any) ->Dict[str,Any]:
@@ -149,9 +150,8 @@ def fetch(url,host="stock.xueqiu.com"):
                'Accept-Language': 'zh-Hans-CN;q=1, ja-JP;q=0.9',
                'Accept-Encoding': 'br, gzip, deflate',
                'Connection': 'keep-alive'}
-    
     response=requests.get(url,headers=HEADERS)
-    print(url)
+    print(response.content)
 
     if(response.status_code!=200):
         raise Exception(response.content)
