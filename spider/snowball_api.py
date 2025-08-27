@@ -175,6 +175,10 @@ def fetch_without_token(url,host="stock.xueqiu.com"):
 
     return json.loads(response.content)    
 
+# 获取沪深股票列表
+def fetch_hs_stock_list(page=1,size=30,order='desc',order_by='symbol'):
+    url=api_ref.stock_list%(page,size,order,order_by)
+    return fetch(url)
 
 
 def get_token():

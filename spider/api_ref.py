@@ -88,3 +88,6 @@ fund_derived = "https://danjuanapp.com/djapi/fund/derived/%s"
 
 # suggest
 suggest_stock = "https://xueqiu.com/query/v1/suggest_stock.json?q="
+
+#stock_list
+stock_list = "https://stock.xueqiu.com/v5/stock/screener/quote/list.json?page=%s&size=%s&order=%s&order_by=%s&market=CN&type=sh_sz"

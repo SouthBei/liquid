@@ -35,3 +35,11 @@ def select():
         # logger.info(fiftyMin_json)
     return 
 
+
+def print_stock_list():
+    stock_list_json=snowball_api.fetch_hs_stock_list(page=1,size=30,order='desc',order_by='percent')
+    #symbol；name; percent 涨跌幅; turnover_rate 换手率; pb;pb_ttm;current_year_percent当前年涨幅；
+    df=pd.DataFrame(stock_list_json['data']['list'])
+    stock_name_df=df.loc[:,['symbol','name']]
+    print(stock_name_df)
+    return df

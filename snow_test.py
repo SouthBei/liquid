@@ -1,4 +1,4 @@
-from spider.selector import select
+from spider.selector import select,print_stock_list
 from spider.snowball_api import set_token,get_token
 
 if __name__ == "__main__":
@@ -9,3 +9,4 @@ if __name__ == "__main__":
     print(token)
     print('接口调用')
     select()
+    print_stock_list()
